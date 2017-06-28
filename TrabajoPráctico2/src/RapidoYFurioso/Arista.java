@@ -1,10 +1,12 @@
 package RapidoYFurioso;
 
-/**
- * @author USER
- *
- */
-public class Arista {
+import java.io.Serializable;
+
+public class Arista implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Integer inicio;
 	private Integer destino;
 	private int peso;

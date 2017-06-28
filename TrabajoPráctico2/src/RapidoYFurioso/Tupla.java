@@ -1,8 +1,14 @@
 package RapidoYFurioso;
 
+import java.io.Serializable;
+
 import org.openstreetmap.gui.jmapviewer.Coordinate;
 
-public class Tupla {
+public class Tupla implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Arista arista;
 	private Coordinate coordenada;
 	

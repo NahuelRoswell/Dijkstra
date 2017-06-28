@@ -1,8 +1,15 @@
 package RapidoYFurioso;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Grafo {
+import org.openstreetmap.gui.jmapviewer.Coordinate;
+
+public class Grafo implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	Tupla[][] grafo;
 	
 	public Grafo(int vertices){
@@ -15,6 +22,19 @@ public class Grafo {
 			for (int j = 0; j < getVertices() ; j++)
 				if (grafo[i][j] == null)
 					grafo[i][j] = new Tupla();
+	}
+	
+	public void agregarVertice(Coordinate latitudLongitud) {
+		int vertices = grafo.length;
+
+		Tupla nueva[][] = new Tupla[vertices + 1][vertices + 1];
+		for (int i = 0; i < vertices; ++i)
+			for (int j = 0; j < vertices; ++j)
+				nueva[i][j] = grafo[i][j];
+
+		grafo = nueva;
+		inicializar();
+		grafo[vertices][vertices].crearCoordenada(latitudLongitud);
 	}
 	
 	public int getVertices(){

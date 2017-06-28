@@ -1,9 +1,14 @@
 package RapidoYFurioso;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-public class Dijkstra {
+public class Dijkstra implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private LinkedList<Integer> camino = new LinkedList<Integer>();
 	ArrayList<Arista> yaRecorridos = new ArrayList<Arista>();
 	ArrayList<Arista> auxiliar = new ArrayList<Arista>();
@@ -110,6 +115,13 @@ public class Dijkstra {
 			resultado += i;
 		
 		return resultado;
+	}
+	
+	public int getDistanciaRecorrida(){  //testear
+		if (resultado!=null)
+			return resultado.getPeso();
+		
+		return 0;
 	}
 	
 	public static void main(String[] args) {
