@@ -307,8 +307,16 @@ public class Mapa implements Serializable {
 
 			private void buscarSolucion(int inicio, int destino, int peajes) {
 				Dijkstra solucion = new Dijkstra(grafo, inicio, destino, peajes);
-				solucion.resolver();
+				Arista resultado = solucion.resolver();
+				
+				if (resultado.getPeso() != Integer.MAX_VALUE)
+					mostrarSolucion(solucion);
+				else
+					JOptionPane.showMessageDialog(null, "¡No existe camino con la cantidad de peajes a recorrer!",
+							"¡Error!", JOptionPane.WARNING_MESSAGE);
+			}
 
+			private void mostrarSolucion(Dijkstra solucion) {
 				String resultado = solucion.mostrarResultado();
 				int distancia = solucion.getDistanciaRecorrida();
 				if (resultado.length() > 1)

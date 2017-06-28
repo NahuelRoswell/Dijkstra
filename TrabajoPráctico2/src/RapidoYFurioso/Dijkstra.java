@@ -60,7 +60,7 @@ public class Dijkstra implements Serializable{
 
 	Arista noRecorridoConMenorPeso() {
 		Arista referencia = new Arista();
-		referencia.agregar(null, null, Integer.MAX_VALUE, false);
+		referencia.agregar(inicio, inicio, Integer.MAX_VALUE, false);
 		
 		for (Arista arista : auxiliar)
 			if (!arista.FueRecorrido() 
